@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h3> 삼성전자 주가 현황 </h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                    일자
+                </th>
+                <th>
+                    종가
+                </th>
+                <th>
+                    대비
+                </th>
+                <th>
+                    등락률
+                </th>
+                <th>
+                    시가
+                </th>
+                <th>
+                    고가
+                </th>
+                <th>
+                    저가
+                </th>
+                <th>
+                    거래량
+                </th>
+                <th>
+                    거래대금
+                </th>
+                <th>
+                    시가총액
+                </th>
+                <th>
+                    상장주식수
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+
+        </tbody>
+    </table>
+        <!-- JQuery 가져오기 -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script>
+            //  Flask 서버와 통신
+            $.ajax({
+                method: "get",
+                url: "http://127.0.0.1:5000",
+                success: r => {
+                    console.log(r);
+                    let tbody = document.querySelector(".tbody");
+                    let html = ``;
+                    r.forEach(o => {
+                        html += `<tr>
+                                <td>
+                                    ${o.일자}
+                                </td>
+                                <td>
+                                    ${o.종가}
+                                </td>
+                                <td>
+                                    ${o.대비}
+                                </td>
+                                <td>
+                                    ${o.등락률}
+                                </td>
+                                <td>
+                                    ${o.시가}
+                                </td>
+                                <td>
+                                    ${o.고가}
+                                </td>
+                                <td>
+                                    ${o.저가}
+                                </td>
+                                <td>
+                                    ${o.거래량}
+                                </td>
+                                <td>
+                                    ${o.거래대금}
+                                </td>
+                                <td>
+                                    ${o.시가총액}
+                                </td>
+                                <td>
+                                    ${o.상장주식수}
+                                </td>
+                            </tr>
+                            `;
+                    })
+                    tbody.innerHTML = html;
+                }
+
+            })
+
+        </script>
+</body>
+
+</html>
