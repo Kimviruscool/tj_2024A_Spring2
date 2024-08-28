@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<h3> 쿠우쿠우 매장 </h3>
+<table border="1">
+    <thead>
+    <tr>
+        <th>
+            번호
+        </th>
+        <th>
+            매장명
+        </th>
+        <th>
+            연락처
+        </th>
+        <th>
+            주소
+        </th>
+        <th>
+            영업시간
+        </th>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+
+    </tbody>
+</table>
+
+<!-- JQuery 가져오기 -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    $.ajax({
+        async : false,
+        method: "get",
+        url: "http://localhost:5000/qooqoo",
+        success: r => {
+            console.log(r);
+            let tbody = document.querySelector('tbody')
+            let html = '';
+            r.forEach(o => {
+                html += `<tr>
+                        <th> ${o.번호} </th>
+                        <th> ${o.지점명} </th>
+                        <th> ${o.연락처} </th>
+                        <th> ${o.주소} </th>
+                        <th> ${o.영업시간} </th>
+                    </tr>`
+            })
+            tbody.innerHTML = html;
+        }
+
+    })
+
+</script>
+</body>
+
+</html>
