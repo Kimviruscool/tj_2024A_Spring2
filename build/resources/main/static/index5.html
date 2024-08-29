@@ -8,6 +8,7 @@
     <!-- http://localhost:8080/index4.html -->
     <h3> 잡코리아 검색 크롤링 </h3>
     <span class="totalBox"> </span>
+    <span class="totalBox1"> </span>
     <table border="1">
         <thead>
             <tr>
@@ -27,7 +28,7 @@
         $.ajax({
             async : false , 
             method : 'get' ,
-            url : "http://192.168.219.100:5000/getjobinfo" ,
+            url : "http://192.168.30.15:5000/getjobinfo" ,
             success : (r) => {
                 console.log(r)
                 let storeInfoTable = document.querySelector('.storeInfoTable')
@@ -49,12 +50,25 @@
         $.ajax({
             async : false , 
             method : 'get' ,
-            url : "http://192.168.219.100:5000/totalJob" ,
+            url : "http://192.168.30.15:5000/totalJob" ,
             success : (r) => {
                 console.log(r)
                 let totalBox = document.querySelector('.totalBox')
                 let html = `총 공고 수 : ${r}`
                 
+                totalBox.innerHTML = html;
+            }
+        })  // ajax end
+
+        $.ajax({
+            async : false ,
+            method : 'get' ,
+            url : "http://192.168.30.15:5000/newhistory" ,
+            success : (r) => {
+                console.log(r)
+                let totalBox = document.querySelector('.totalBox1')
+                let html = `신입 공고 수 : ${r}`
+
                 totalBox.innerHTML = html;
             }
         })  // ajax end
