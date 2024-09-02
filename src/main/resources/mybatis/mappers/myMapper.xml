@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- xml주석 -->
+<mapper namespace="example.mybatis.MyDao"> <!--start-->
+    <!--namepace="매핑할 인터페이스 경로(위치) -->
+
+    <!-- select 매핑 -->
+    <!-- id = " 매핑할 추상메소드명"  resultType="반환할 타입" -->
+    <select id="findAll" resultType="example.mybatis.UserDto">
+        select * from user
+    </select>
+
+    <!-- 등록 -->
+    <!-- parameterType = "매개변수 타입 " -->
+    <insert id="save" parameterType="example.mybatis.UserDto">
+        insert into user (name, age) values (#{name}, #{age})
+    </insert>
+
+    <!--업데이트-->
+    <update id="update" parameterType="example.mybatis.UserDto">
+        update user set name = #{name} , age = #{age} where id = #{id}
+    </update>
+
+    <!-- 삭제 -->
+    <delete id="delete" parameterType="example.mybatis.UserDto">
+        delete from user where id = #{id}
+    </delete>
+
+</mapper> <!--end-->
