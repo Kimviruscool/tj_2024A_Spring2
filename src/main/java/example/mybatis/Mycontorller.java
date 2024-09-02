@@ -16,6 +16,11 @@ public class Mycontorller {
         return myservice.findAll();
     }
 
+    @GetMapping("/find")
+    public UserDto findByid(int id){
+        return myservice.findByid(id);
+    }
+
     @PostMapping("/save")
     public int save(UserDto userDto){
         return myservice.save(userDto);

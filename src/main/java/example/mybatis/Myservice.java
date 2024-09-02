@@ -26,4 +26,8 @@ public class Myservice {
     public int delete(int id){
         return myDao.delete(id);
     }
+
+    public UserDto findByid(int id){
+        return myDao.findByid(id);
+    }
 }

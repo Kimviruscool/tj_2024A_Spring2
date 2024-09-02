@@ -18,4 +18,7 @@ public interface MyDao {
     int update(UserDto userDto);
     //삭제
     int delete(int id);
+
+    //하나만찾기
+    UserDto findByid(int id);
 }
