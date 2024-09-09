@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+</head>
+<body>
+    <h4>등록</h4>
+    <div id="put"> 설명 : <input id="puttmi" type="text"> 금액<input id="putprice" type="text"> 날짜<input id="putdate" type="date"> </div>
+    <button onclick="add()" id="post" type="button"> 등록 </button>
+
+    <h4>출력</h4>
+    <div id="get">  </div>
+
+    <h4>수정</h4>
+    <div id="update"> 번호 : <input id="updatenum" type="number"> 설명수정 : <input id="updatetmi" type="text"> 날짜수정 : <input id="updatedate" type="date"> </div>
+    <button onclick="update()" id="updates" type="button"> 수정 </button>
+
+    <h4>삭제</h4>
+    <div id="delete"> 삭제번호 : <input id="delnum" type="number"> </div>
+    <button onclick="deletee()" type="button"> 삭제 </button>
+
+    <!-- JQUERY -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="index8.js"> </script>
+</body>
+</html>
