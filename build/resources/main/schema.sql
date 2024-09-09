@@ -3,11 +3,13 @@
 --create database springpy;
 --use springpy;
 
---[2] user table
-drop table if exists user;
-CREATE TABLE user (
+--[2] user
+use account;
+drop table if exists accounts;
+CREATE TABLE accounts (
     id int auto_increment,
-    name varchar(20),
-    age int,
+    tmi varchar(20),
+    price int,
+    timer datetime default now(),
     primary key (id)
 );

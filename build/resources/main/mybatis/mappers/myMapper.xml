@@ -29,4 +29,8 @@
         delete from user where id = #{id}
     </delete>
 
+    <select id="findByid" parameterType="int" resultType="example.mybatis.UserDto">
+        select * from user where id = #{id}
+    </select>
+
 </mapper> <!--end-->

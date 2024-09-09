@@ -21,7 +21,7 @@
         url : 'http://localhost:5000/trans1' ,
         success : response => {
 
-            // 1.
+            // 1. 반복문사용 (강사님)
             let thead = document.querySelector('thead') // 1-1 테이블 제목
             // 1-2 제목 구성
             let responseKeys = Object.keys( response )
@@ -50,121 +50,121 @@
 
             tbody.innerHTML = html2;
 
-<!--            // 1.-->
-<!--            let thead = document.querySelector('thead') // 1-1 테이블 제목-->
-<!--                // 1-2 제목 구성-->
-<!--            let html = `<tr> <th> </th> <th> NO </th> <th> 건축년도 </th> <th> 계약년월 </th> <th> 계약일 </th>-->
-<!--                        <th>본번</th> <th>부번</th> <th> 월세금(만원) </th>  <th> 전용면적(㎡)</th>-->
-<!--                        <th> 종전계약 월세(만원) </th>  <th> 층 </th>-->
-<!--                        </tr>`;-->
-<!--            thead.innerHTML = html;  // 1-3 대입-->
+            // 1. 내가한거
+            let thead = document.querySelector('thead') // 1-1 테이블 제목
+                // 1-2 제목 구성
+            let html = `<tr> <th> </th> <th> NO </th> <th> 건축년도 </th> <th> 계약년월 </th> <th> 계약일 </th>
+                        <th>본번</th> <th>부번</th> <th> 월세금(만원) </th>  <th> 전용면적(㎡)</th>
+                        <th> 종전계약 월세(만원) </th>  <th> 층 </th>
+                        </tr>`;
+            thead.innerHTML = html;  // 1-3 대입
 
-<!--            let tbody = document.querySelector('tbody')-->
-<!--            let html2 = `<tr>-->
-<!--                            <td> 25% </td>-->
-<!--                            <td> ${ response['NO']['25%'] } </td>-->
-<!--                            <td> ${ response['건축년도']['25%'] } </td>-->
-<!--                            <td> ${ response['계약년월']['25%'] } </td>-->
-<!--                            <td> ${ response['계약일']['25%'] } </td>-->
-<!--                            <td> ${ response['본번']['25%'] } </td>-->
-<!--                            <td> ${ response['부번']['25%'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['25%'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['25%'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['25%'] } </td>-->
-<!--                            <td> ${ response['층']['25%'] } </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td> 50% </td>-->
-<!--                            <td> ${ response['NO']['50%'] } </td>-->
-<!--                            <td> ${ response['건축년도']['50%'] } </td>-->
-<!--                            <td> ${ response['계약년월']['50%'] } </td>-->
-<!--                            <td> ${ response['계약일']['50%'] } </td>-->
-<!--                            <td> ${ response['본번']['50%'] } </td>-->
-<!--                            <td> ${ response['부번']['50%'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['50%'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['50%'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['50%'] } </td>-->
-<!--                            <td> ${ response['층']['50%'] } </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td> 75% </td>-->
-<!--                            <td> ${ response['NO']['75%'] } </td>-->
-<!--                            <td> ${ response['건축년도']['75%'] } </td>-->
-<!--                            <td> ${ response['계약년월']['75%'] } </td>-->
-<!--                            <td> ${ response['계약일']['75%'] } </td>-->
-<!--                            <td> ${ response['본번']['75%'] } </td>-->
-<!--                            <td> ${ response['부번']['75%'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['75%'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['75%'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['75%'] } </td>-->
-<!--                            <td> ${ response['층']['75%'] } </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td> max </td>-->
-<!--                            <td> ${ response['NO']['max'] } </td>-->
-<!--                            <td> ${ response['건축년도']['max'] } </td>-->
-<!--                            <td> ${ response['계약년월']['max'] } </td>-->
-<!--                            <td> ${ response['계약일']['max'] } </td>-->
-<!--                            <td> ${ response['본번']['max'] } </td>-->
-<!--                            <td> ${ response['부번']['max'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['max'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['max'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['max'] } </td>-->
-<!--                            <td> ${ response['층']['max'] } </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td> min </td>-->
-<!--                            <td> ${ response['NO']['min'] } </td>-->
-<!--                            <td> ${ response['건축년도']['min'] } </td>-->
-<!--                            <td> ${ response['계약년월']['min'] } </td>-->
-<!--                            <td> ${ response['계약일']['min'] } </td>-->
-<!--                            <td> ${ response['본번']['min'] } </td>-->
-<!--                            <td> ${ response['부번']['min'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['min'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['min'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['min'] } </td>-->
-<!--                            <td> ${ response['층']['min'] } </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td> mean </td>-->
-<!--                            <td> ${ response['NO']['mean'] } </td>-->
-<!--                            <td> ${ response['건축년도']['mean'] } </td>-->
-<!--                            <td> ${ response['계약년월']['mean'] } </td>-->
-<!--                            <td> ${ response['계약일']['mean'] } </td>-->
-<!--                            <td> ${ response['본번']['mean'] } </td>-->
-<!--                            <td> ${ response['부번']['mean'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['mean'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['mean'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['mean'] } </td>-->
-<!--                            <td> ${ response['층']['mean'] } </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td> count </td>-->
-<!--                            <td> ${ response['NO']['count'] } </td>-->
-<!--                            <td> ${ response['건축년도']['count'] } </td>-->
-<!--                            <td> ${ response['계약년월']['count'] } </td>-->
-<!--                            <td> ${ response['계약일']['count'] } </td>-->
-<!--                            <td> ${ response['본번']['count'] } </td>-->
-<!--                            <td> ${ response['부번']['count'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['count'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['count'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['count'] } </td>-->
-<!--                            <td> ${ response['층']['count'] } </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td> std </td>-->
-<!--                            <td> ${ response['NO']['std'] } </td>-->
-<!--                            <td> ${ response['건축년도']['std'] } </td>-->
-<!--                            <td> ${ response['계약년월']['std'] } </td>-->
-<!--                            <td> ${ response['계약일']['std'] } </td>-->
-<!--                            <td> ${ response['본번']['std'] } </td>-->
-<!--                            <td> ${ response['부번']['std'] } </td>-->
-<!--                            <td> ${ response['월세금(만원)']['std'] } </td>-->
-<!--                            <td> ${ response['전용면적(㎡)']['std'] } </td>-->
-<!--                            <td> ${ response['종전계약 월세(만원)']['std'] } </td>-->
-<!--                            <td> ${ response['층']['std'] } </td>-->
-<!--                        </tr>`-->
-<!--            tbody.innerHTML = html2;-->
+            let tbody = document.querySelector('tbody')
+            let html2 = `<tr>
+                            <td> 25% </td>
+                            <td> ${ response['NO']['25%'] } </td>
+                            <td> ${ response['건축년도']['25%'] } </td>
+                            <td> ${ response['계약년월']['25%'] } </td>
+                            <td> ${ response['계약일']['25%'] } </td>
+                            <td> ${ response['본번']['25%'] } </td>
+                            <td> ${ response['부번']['25%'] } </td>
+                            <td> ${ response['월세금(만원)']['25%'] } </td>
+                            <td> ${ response['전용면적(㎡)']['25%'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['25%'] } </td>
+                            <td> ${ response['층']['25%'] } </td>
+                        </tr>
+                        <tr>
+                            <td> 50% </td>
+                            <td> ${ response['NO']['50%'] } </td>
+                            <td> ${ response['건축년도']['50%'] } </td>
+                            <td> ${ response['계약년월']['50%'] } </td>
+                            <td> ${ response['계약일']['50%'] } </td>
+                            <td> ${ response['본번']['50%'] } </td>
+                            <td> ${ response['부번']['50%'] } </td>
+                            <td> ${ response['월세금(만원)']['50%'] } </td>
+                            <td> ${ response['전용면적(㎡)']['50%'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['50%'] } </td>
+                            <td> ${ response['층']['50%'] } </td>
+                        </tr>
+                        <tr>
+                            <td> 75% </td>
+                            <td> ${ response['NO']['75%'] } </td>
+                            <td> ${ response['건축년도']['75%'] } </td>
+                            <td> ${ response['계약년월']['75%'] } </td>
+                            <td> ${ response['계약일']['75%'] } </td>
+                            <td> ${ response['본번']['75%'] } </td>
+                            <td> ${ response['부번']['75%'] } </td>
+                            <td> ${ response['월세금(만원)']['75%'] } </td>
+                            <td> ${ response['전용면적(㎡)']['75%'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['75%'] } </td>
+                            <td> ${ response['층']['75%'] } </td>
+                        </tr>
+                        <tr>
+                            <td> max </td>
+                            <td> ${ response['NO']['max'] } </td>
+                            <td> ${ response['건축년도']['max'] } </td>
+                            <td> ${ response['계약년월']['max'] } </td>
+                            <td> ${ response['계약일']['max'] } </td>
+                            <td> ${ response['본번']['max'] } </td>
+                            <td> ${ response['부번']['max'] } </td>
+                            <td> ${ response['월세금(만원)']['max'] } </td>
+                            <td> ${ response['전용면적(㎡)']['max'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['max'] } </td>
+                            <td> ${ response['층']['max'] } </td>
+                        </tr>
+                        <tr>
+                            <td> min </td>
+                            <td> ${ response['NO']['min'] } </td>
+                            <td> ${ response['건축년도']['min'] } </td>
+                            <td> ${ response['계약년월']['min'] } </td>
+                            <td> ${ response['계약일']['min'] } </td>
+                            <td> ${ response['본번']['min'] } </td>
+                            <td> ${ response['부번']['min'] } </td>
+                            <td> ${ response['월세금(만원)']['min'] } </td>
+                            <td> ${ response['전용면적(㎡)']['min'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['min'] } </td>
+                            <td> ${ response['층']['min'] } </td>
+                        </tr>
+                        <tr>
+                            <td> mean </td>
+                            <td> ${ response['NO']['mean'] } </td>
+                            <td> ${ response['건축년도']['mean'] } </td>
+                            <td> ${ response['계약년월']['mean'] } </td>
+                            <td> ${ response['계약일']['mean'] } </td>
+                            <td> ${ response['본번']['mean'] } </td>
+                            <td> ${ response['부번']['mean'] } </td>
+                            <td> ${ response['월세금(만원)']['mean'] } </td>
+                            <td> ${ response['전용면적(㎡)']['mean'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['mean'] } </td>
+                            <td> ${ response['층']['mean'] } </td>
+                        </tr>
+                        <tr>
+                            <td> count </td>
+                            <td> ${ response['NO']['count'] } </td>
+                            <td> ${ response['건축년도']['count'] } </td>
+                            <td> ${ response['계약년월']['count'] } </td>
+                            <td> ${ response['계약일']['count'] } </td>
+                            <td> ${ response['본번']['count'] } </td>
+                            <td> ${ response['부번']['count'] } </td>
+                            <td> ${ response['월세금(만원)']['count'] } </td>
+                            <td> ${ response['전용면적(㎡)']['count'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['count'] } </td>
+                            <td> ${ response['층']['count'] } </td>
+                        </tr>
+                        <tr>
+                            <td> std </td>
+                            <td> ${ response['NO']['std'] } </td>
+                            <td> ${ response['건축년도']['std'] } </td>
+                            <td> ${ response['계약년월']['std'] } </td>
+                            <td> ${ response['계약일']['std'] } </td>
+                            <td> ${ response['본번']['std'] } </td>
+                            <td> ${ response['부번']['std'] } </td>
+                            <td> ${ response['월세금(만원)']['std'] } </td>
+                            <td> ${ response['전용면적(㎡)']['std'] } </td>
+                            <td> ${ response['종전계약 월세(만원)']['std'] } </td>
+                            <td> ${ response['층']['std'] } </td>
+                        </tr>`
+            tbody.innerHTML = html2;
 
             // 2.
             console.log( response ); //response 성공시 목록 출력
