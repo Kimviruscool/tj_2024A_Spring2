@@ -36,8 +36,13 @@
         2-4. 웹서버소켓의 핸들러/컨트롤러 만들기
             - ChatController 클래스
             - extends TextWebSocketHandler 상속
+            1. 클라이언트가 서버 소켓과 접속 요청이 성공 했을때
+            afterConnectionEstablished 메소드 실행
 
-
-    3.
+            2. 클라이언트가 서버 소켓과 접속이 끊겼을때
+            afterConnectionClosed 메소드 실행
 
     [3] 클라이언트소켓 구현 #JS
+        WebSocket 클래스 이용한 클라이언트 소켓 구현
+        1. 클라이언트 소켓 생성
+        New WebSocket("서버소켓의 URL")
