@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
@@ -37,5 +38,20 @@ public class ChatController extends TextWebSocketHandler {
         접속된클라이언트소켓.remove(session);
         //현재 접속된 인원수
         System.out.println("서버소켓의 접속 인원 : " + 접속된클라이언트소켓.size());
+    }
+
+    @Override
+    public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+        System.out.println("session = " + session + ", message = " + message);
+        System.out.println(message.getPayload());
+
+        //특정한 세션으로 받은 메세지 내용을 현재 접속된 다른 세션에게도 전달
+            //1. 모든 접속된 클라이언트소켓 하나씩 꺼내기
+        for(int i=0; i < 접속된클라이언트소켓.size(); i++){
+            //2. 목록에 저장된 하나의 세션 호출
+            WebSocketSession s = 접속된클라이언트소켓.get(i);
+            //3. 세션 클라이언트 소켓 정보에 메세지를 보내기
+            s.sendMessage(message);
+        }
     }
 }
