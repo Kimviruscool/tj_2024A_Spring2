@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>chat.html</title>
+
+    <style>
+        .msgbox{
+            width : 300px;
+            border : 1px solid black;
+        }
+
+        .frommsg{
+            text-align : right;
+            background-color : yellow;
+        }
+
+        .tomsgbox{
+            text-align : left;
+        }
+        .alarm {
+            text-align : center;
+            background-color : gray;
+        }
+    </style>
+
 </head>
 <body>
 
+    <div class="msgbox">
+
+    </div>
+    <input id="text" type="text">
     <button onclick="onMsgSend()"> 메세지 전송 </button>
 
     <script src="/js/chat/chat.js"></script>

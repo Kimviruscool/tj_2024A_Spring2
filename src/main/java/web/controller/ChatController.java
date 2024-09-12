@@ -38,6 +38,11 @@ public class ChatController extends TextWebSocketHandler {
         접속된클라이언트소켓.remove(session);
         //현재 접속된 인원수
         System.out.println("서버소켓의 접속 인원 : " + 접속된클라이언트소켓.size());
+        //퇴장/제거 한 세션을 제외한 다른 클라이언트소켓(세션) 들에게 메시지 전송
+        // 클라이언트 소켓의 정보를 세션 에서 저장하고 있다.
+        TextMessage textMessage = new TextMessage("Hello, ClientSocket");
+        handleTextMessage(null, textMessage);
+
     }
 
     @Override
